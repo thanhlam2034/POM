@@ -16,5 +16,4 @@ test('test have test steps', async ({ page }) => {
         const contentLoggerLbl = await homePage.getLoggerLabelContent();
         expect(contentLoggerLbl).toEqual('You logged into a secure area!');
     })
-
 })
