@@ -15,11 +15,11 @@ pipeline {
                     npm i -D @playwright/test && npx playwright install
             '''
             }
-        }
+        } 
         stage('Testing') {
             steps {
                 sh '''
-                    npx playwright test testwithoutPOM.spec.ts --project=chromium
+                    npx playwright test session5.spec.ts --project=chromium
                 '''
             }
         }

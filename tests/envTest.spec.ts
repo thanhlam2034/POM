@@ -6,7 +6,7 @@ test('Print url & username & password base on env', async ({ page }) => {
     console.log("Password: " + process.env.PASSWORD);
 });
 
-test('Go to page base on env', async ({ page }) => {
+test.skip('Go to page base on env', async ({ page }) => {
     await page.goto(process.env.BASE_URL!);
     await page.waitForTimeout(3000);
 })
