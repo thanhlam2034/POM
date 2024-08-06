@@ -24,7 +24,6 @@ test('TC005 - Verify Upload file using file store in project', async ({ page }) 
     // Path file: from project
     await page.locator('#file-upload').setInputFiles('./data/1.jpg');
 
-
     await page.getByRole('button', { name: 'Upload' }).click();
     await expect(page.getByText('1.jpg')).toBeVisible();
 })

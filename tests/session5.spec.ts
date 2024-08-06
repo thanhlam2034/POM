@@ -3,6 +3,7 @@ import { LoginPage } from '../pages/login.page';
 import { CartPage } from '../pages/cart.page';
 import { InventoryPage } from '../pages/inventory.page';
 import { CheckoutPage } from '../pages/checkout.page';
+import { ConfirmationPage } from '../pages/confirmation.page';
 
 test.beforeEach('Go to page', async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -29,6 +30,7 @@ test('TC002 - Verify user can order product successfully', async ({ page }) => {
   let inventoryPage = new InventoryPage(page);
   let cartPage = new CartPage(page);
   let checkoutPage = new CheckoutPage(page);
+  let confirmationPage = new ConfirmationPage(page);
   let firstName = 'Lam'
   let lastName = 'Nguyen'
   let zipCode = '70000'
@@ -55,12 +57,12 @@ test('TC002 - Verify user can order product successfully', async ({ page }) => {
   await test.step('In checkout page, input all required fields', async () => {
     await checkoutPage.inputData(firstName, lastName, zipCode);
     await checkoutPage.verifyValuesInputted(firstName, lastName, zipCode);
-  })
-
-  await test.step('In checkout page, validate thank you message is displayw', async () => {
     await checkoutPage.clickContinueButton();
     await checkoutPage.clickFinishButton();
-    await checkoutPage.verifyThankYouMessage();
+  })
+
+  await test.step('Validate thank you message is displayed', async () => {
+    await confirmationPage.verifyThankYouMessage();
   })
 });
 
