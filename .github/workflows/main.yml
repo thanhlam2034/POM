@@ -27,5 +27,37 @@ jobs:
       - name: Install project dependencies
         run: npm install
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  e2e-tests:
+    runs-on: windows-latest # You can change to macos-latest or ubuntu-latest if required
+
+    strategy:
+      matrix:
+        node-version: [16.x] # Using Node.js 16.x, you can adjust this if needed
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Playwright browsers
+        uses: microsoft/playwright-github-action@v1
+        with:
+          install-deps: true  # Ensures Playwright dependencies (e.g., browsers) are installed
+
+      - name: Install project dependencies
+        run: npm install
+
+      - name: Install Playwright
+        run: npx playwright install      
+
       - name: Run Playwright tests
         run: npx playwright test session5.spec.ts --project=chromium
