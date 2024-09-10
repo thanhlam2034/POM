@@ -27,4 +27,6 @@ jobs:
           npx playwright install
 
       - name: Run Playwright tests
-        run: npx playwright test session5.spec.ts --project=chromium
+        run: |
+        export ENV='qa'
+        npx playwright test env.spec.ts --project=chrome --headed
