@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]  # Using Node.js 16.x, you can change to a higher version as needed
+        node-version: [20.x]  # Using Node.js 20.x, you can change to a higher version as needed
 
     steps:
       - uses: actions/checkout@v3  # Updated to v3 to avoid deprecation warnings
