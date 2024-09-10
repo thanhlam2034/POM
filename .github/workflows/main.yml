@@ -28,5 +28,5 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-        export ENV='qa'
-        npx playwright test env.spec.ts --project=chrome --headed
+          export ENV='qa'
+          npx playwright test env.spec.ts --project=chrome --headed
