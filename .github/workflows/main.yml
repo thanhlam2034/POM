@@ -5,7 +5,7 @@ on:
 
 jobs:
   e2e-tests:
-    runs-on: windows-latest  # You can change to macos-latest or ubuntu-latest if needed
+    runs-on: macos-latest  # You can change to macos-latest or ubuntu-latest if needed
 
     strategy:
       matrix:
